@@ -3,10 +3,12 @@ package com.kafka.model;
 public class Item {
     private int id;
     private String name;
+    private boolean isSpecial;
 
-    public Item(int id, String name) {
+    public Item(int id, String name, boolean isSpecial) {
         this.id = id;
         this.name = name;
+        this.isSpecial = isSpecial;
     }
 
     public int getId() {
@@ -24,11 +26,22 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
+    
+    
 
-    public String toJson() {
+    public boolean isSpecial() {
+		return isSpecial;
+	}
+
+	public void setSpecial(boolean isSpecial) {
+		this.isSpecial = isSpecial;
+	}
+
+	public String toJson() {
         return "{" +
                 "\"id\": " + id +
                 ", \"name\": \"" + name + '\"' +
+                ", \"isSpecial\": \"" + isSpecial + '\"' +
                 '}';
     }
 
